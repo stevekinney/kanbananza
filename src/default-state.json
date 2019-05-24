@@ -1,0 +1,42 @@
+{
+  "lists": [
+    {
+      "cards": [
+        {
+          "id": "1558196597470",
+          "title": "Learn Redux",
+          "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
+        },
+        {
+          "id": "1558196612656",
+          "title": "Learn MobX",
+          "description": "I heard that's what all of the cool kids were doing these days."
+        }
+      ],
+      "id": "1558196567543",
+      "title": "Backburner"
+    },
+    {
+      "cards": [
+        {
+          "id": "1558196631373",
+          "title": "Master React state",
+          "description": "It looks like it's come a long way. The Context API seems cool."
+        }
+      ],
+      "id": "1558196569460",
+      "title": "Doing"
+    },
+    {
+      "cards": [
+        {
+          "id": "1558196662573",
+          "title": "Learn enough React to make a mess",
+          "description": "The \"prop drilling\" struggle is _real_."
+        }
+      ],
+      "id": "1558196570597",
+      "title": "Done"
+    }
+  ]
+}
