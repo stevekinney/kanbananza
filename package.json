@@ -5,6 +5,7 @@
   "dependencies": {
     "localforage": "^1.7.3",
     "lodash": "^4.17.11",
+    "md5": "^2.2.1",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.4",
     "node-sass": "^4.12.0",
