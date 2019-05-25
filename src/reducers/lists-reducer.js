@@ -2,8 +2,6 @@ import { lists as defaultLists } from '../normalized-state';
 import { CARD_CREATE, CARD_DELETE, CARD_MOVE } from '../actions/card-actions';
 import { LIST_CREATE, LIST_DELETE } from '../actions/list-actions';
 
-import pipe from 'lodash/fp/pipe';
-
 import {
   addEntity,
   addIdToChildren,
