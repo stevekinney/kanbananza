@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import CardAssignment from './CardAssignment';
+
 class Card extends Component {
   state = { showOptions: false };
 
@@ -17,7 +19,14 @@ class Card extends Component {
   };
 
   render() {
-    const { card = {}, lists = [], listId, onRemoveCard } = this.props;
+    const {
+      card = {},
+      lists = [],
+      users,
+      listId,
+      onRemoveCard,
+      onAssignCard,
+    } = this.props;
     const { showOptions } = this.state;
     const removeCard = () => onRemoveCard(listId, card.id);
 
@@ -38,6 +47,11 @@ class Card extends Component {
                 </option>
               ))}
             </select>
+            <CardAssignment
+              users={users}
+              card={card}
+              onAssignCard={onAssignCard}
+            />
             <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>

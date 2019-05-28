@@ -3,10 +3,12 @@ import List from './List';
 
 const Lists = ({
   lists,
+  users,
   onRemoveList,
   onRemoveCard,
   onCreateCard,
   onListChange,
+  onAssignCard,
 }) => {
   return (
     <section className="Lists">
@@ -15,10 +17,12 @@ const Lists = ({
           list={list}
           lists={lists}
           key={list.id}
+          users={users}
           onCreateCard={onCreateCard}
           onRemoveList={onRemoveList}
           onRemoveCard={onRemoveCard}
           onListChange={onListChange}
+          onAssignCard={onAssignCard}
         />
       ))}
     </section>
