@@ -4,7 +4,7 @@ import { users } from '../default-state.json';
 class RenderUsers extends Component {
   state = { users };
 
-  onCreateUser = ({ name, email }) => {
+  createUser = ({ name, email }) => {
     const { users } = this.state;
 
     const user = {
@@ -16,7 +16,7 @@ class RenderUsers extends Component {
     this.setState({ users: [...users, user] });
   };
 
-  onUpdateUser = updatedUser => {
+  updateUser = updatedUser => {
     this.setState(({ users }) => {
       return {
         users: users.map(user => {
@@ -27,10 +27,10 @@ class RenderUsers extends Component {
   };
 
   render() {
-    const { onCreateUser, onUpdateUser } = this;
+    const { createUser, updateUser } = this;
     const { users } = this.state;
 
-    return <>{this.props.children({ users, onCreateUser, onUpdateUser })}</>;
+    return <>{this.props.children({ users, createUser, updateUser })}</>;
   }
 }
 

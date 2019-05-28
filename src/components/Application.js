@@ -94,7 +94,7 @@ class Application extends Component {
   };
 
   render() {
-    const { lists, users } = this.state;
+    const { lists } = this.state;
     return (
       <main className="Application">
         <Users />
@@ -102,7 +102,6 @@ class Application extends Component {
           <CreateList onCreateList={this.createList} />
           <Lists
             lists={lists}
-            users={users}
             onCreateCard={this.createCard}
             onRemoveList={this.removeList}
             onRemoveCard={this.removeCard}

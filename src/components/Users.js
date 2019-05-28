@@ -2,19 +2,24 @@ import React from 'react';
 
 import CreateUser from './CreateUser';
 import User from './User';
-import withUsers from './withUsers';
+import RenderUsers from './RenderUsers';
 
-const Users = ({ users, onCreateUser, onUpdateUser }) => {
-  console.log({ onCreateUser });
+const Users = () => {
   return (
     <section className="Users">
       <h2>Users</h2>
-      <CreateUser onCreateUser={onCreateUser} />
-      {users.map(user => (
-        <User user={user} key={user.id} onUpdateUser={onUpdateUser} />
-      ))}
+      <RenderUsers>
+        {({ users, createUser, updateUser }) => (
+          <section>
+            <CreateUser onCreateUser={createUser} />
+            {users.map(user => (
+              <User user={user} key={user.id} onUpdateUser={updateUser} />
+            ))}
+          </section>
+        )}
+      </RenderUsers>
     </section>
   );
 };
 
-export default withUsers(Users);
+export default Users;
