@@ -10,14 +10,18 @@ class List extends Component {
     this.setState(({ showOptions }) => ({ showOptions: !showOptions }));
   };
 
-  createCard = () => {};
-
   removeList = () => {
     this.props.onRemoveList(this.props.list.id);
   };
 
   render() {
-    const { list = {}, onRemoveCard } = this.props;
+    const {
+      list = {},
+      lists,
+      onListChange,
+      onRemoveCard,
+      onCreateCard,
+    } = this.props;
     const { showOptions } = this.state;
 
     return (
@@ -25,7 +29,7 @@ class List extends Component {
         <h2>{list.title}</h2>
         {showOptions && (
           <div className="List-options">
-            <CreateCard onCreateCard={this.createCard} />
+            <CreateCard onCreateCard={onCreateCard} listId={list.id} />
             <button className="List-remove danger" onClick={this.removeList}>
               Remove List
             </button>
@@ -44,6 +48,8 @@ class List extends Component {
               card={card}
               onRemoveCard={onRemoveCard}
               listId={list.id}
+              lists={lists}
+              onListChange={onListChange}
             />
           ))}
         </div>

@@ -13,7 +13,7 @@ class Card extends Component {
     const newListId = event.target.value;
     const { card } = this.props;
 
-    this.props.onListChange(card, newListId);
+    this.props.onListChange(newListId, card);
   };
 
   render() {
@@ -27,17 +27,17 @@ class Card extends Component {
         <div className="Card-description">{card.description}</div>
         {showOptions && (
           <div className="Card-options">
-            {/* <select
+            <select
               className="Card-move"
               onChange={this.handleChange}
-              value={list.id}
+              value={listId}
             >
               {lists.map(list => (
                 <option value={list.id} key={list.id}>
                   {list.title}
                 </option>
               ))}
-            </select> */}
+            </select>
             <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>

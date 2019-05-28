@@ -29,6 +29,20 @@ class Application extends Component {
     this.setState({ lists });
   };
 
+  createCard = (listId, { title, description }) => {
+    let { lists } = this.state;
+    const card = { id: Date.now().toString(), title, description };
+
+    lists = lists.map(list => {
+      if (list.id === listId) {
+        return { ...list, cards: [...list.cards, card] };
+      }
+      return list;
+    });
+
+    this.setState({ lists });
+  };
+
   removeCard = (listId, cardId) => {
     let { lists } = this.state;
 
@@ -44,6 +58,22 @@ class Application extends Component {
     this.setState({ lists });
   };
 
+  moveCardToList = (targetListId, targetCard) => {
+    let { lists } = this.state;
+
+    lists = lists.map(list => {
+      let newCards;
+      if (list.id === targetListId) {
+        newCards = [...list.cards, targetCard];
+      } else {
+        newCards = list.cards.filter(card => card.id !== targetCard.id);
+      }
+      return { ...list, cards: newCards };
+    });
+
+    this.setState({ lists });
+  };
+
   render() {
     const { lists } = this.state;
     return (
@@ -53,8 +83,10 @@ class Application extends Component {
           <CreateList onCreateList={this.createList} />
           <Lists
             lists={lists}
+            onCreateCard={this.createCard}
             onRemoveList={this.removeList}
             onRemoveCard={this.removeCard}
+            onListChange={this.moveCardToList}
           />
         </section>
       </main>
