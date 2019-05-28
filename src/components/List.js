@@ -17,7 +17,7 @@ class List extends Component {
   };
 
   render() {
-    const { list = {} } = this.props;
+    const { list = {}, onRemoveCard } = this.props;
     const { showOptions } = this.state;
 
     return (
@@ -39,7 +39,12 @@ class List extends Component {
         </button>
         <div>
           {list.cards.map(card => (
-            <Card key={card.id} card={card} />
+            <Card
+              key={card.id}
+              card={card}
+              onRemoveCard={onRemoveCard}
+              listId={list.id}
+            />
           ))}
         </div>
       </article>
