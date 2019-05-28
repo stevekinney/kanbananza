@@ -75,28 +75,6 @@ class Application extends Component {
     this.setState({ lists });
   };
 
-  createUser = ({ name, email }) => {
-    const { users } = this.state;
-
-    const user = {
-      id: Date.now().toString(),
-      name,
-      email,
-    };
-
-    this.setState({ users: [...users, user] });
-  };
-
-  updateUser = updatedUser => {
-    this.setState(({ users }) => {
-      return {
-        users: users.map(user => {
-          return user.id === updatedUser.id ? updatedUser : user;
-        }),
-      };
-    });
-  };
-
   assignCard = (cardId, userId) => {
     let { lists } = this.state;
 
@@ -112,8 +90,6 @@ class Application extends Component {
       return { ...list, cards };
     });
 
-    console.log(lists);
-
     this.setState({ lists });
   };
 
@@ -121,11 +97,7 @@ class Application extends Component {
     const { lists, users } = this.state;
     return (
       <main className="Application">
-        <Users
-          users={users}
-          onCreateUser={this.createUser}
-          onUpdateUser={this.updateUser}
-        />
+        <Users />
         <section>
           <CreateList onCreateList={this.createList} />
           <Lists

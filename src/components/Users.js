@@ -2,8 +2,10 @@ import React from 'react';
 
 import CreateUser from './CreateUser';
 import User from './User';
+import withUsers from './withUsers';
 
 const Users = ({ users, onCreateUser, onUpdateUser }) => {
+  console.log({ onCreateUser });
   return (
     <section className="Users">
       <h2>Users</h2>
@@ -15,4 +17,4 @@ const Users = ({ users, onCreateUser, onUpdateUser }) => {
   );
 };
 
-export default Users;
+export default withUsers(Users);
