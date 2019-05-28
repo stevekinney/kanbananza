@@ -2,13 +2,13 @@ import React from 'react';
 
 import CreateUser from './CreateUser';
 import User from './User';
-import RenderUsers from './RenderUsers';
+import { UsersContext } from './UsersContext';
 
 const Users = () => {
   return (
     <section className="Users">
       <h2>Users</h2>
-      <RenderUsers>
+      <UsersContext.Consumer>
         {({ users, createUser, updateUser }) => (
           <section>
             <CreateUser onCreateUser={createUser} />
@@ -17,7 +17,7 @@ const Users = () => {
             ))}
           </section>
         )}
-      </RenderUsers>
+      </UsersContext.Consumer>
     </section>
   );
 };

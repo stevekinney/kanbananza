@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import CardAssignment from './CardAssignment';
 
 import RenderUsers from './RenderUsers';
+import { UsersContext } from './UsersContext';
 
 class Card extends Component {
   state = { showOptions: false };
@@ -48,7 +49,7 @@ class Card extends Component {
                 </option>
               ))}
             </select>
-            <RenderUsers>
+            <UsersContext.Consumer>
               {({ users }) => (
                 <CardAssignment
                   card={card}
@@ -56,7 +57,7 @@ class Card extends Component {
                   users={users}
                 />
               )}
-            </RenderUsers>
+            </UsersContext.Consumer>
             <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>

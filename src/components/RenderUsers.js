@@ -1,33 +1,21 @@
 import React, { Component } from 'react';
-import { users } from '../default-state.json';
+import UserStore from './UserStore.js';
 
 class RenderUsers extends Component {
-  state = { users };
+  state = { users: UserStore.users };
 
-  createUser = ({ name, email }) => {
-    const { users } = this.state;
+  componentDidMount() {
+    this.unsubscribe = UserStore.on('change', users =>
+      this.setState({ users }),
+    );
+  }
 
-    const user = {
-      id: Date.now().toString(),
-      name,
-      email,
-    };
-
-    this.setState({ users: [...users, user] });
-  };
-
-  updateUser = updatedUser => {
-    this.setState(({ users }) => {
-      return {
-        users: users.map(user => {
-          return user.id === updatedUser.id ? updatedUser : user;
-        }),
-      };
-    });
-  };
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
 
   render() {
-    const { createUser, updateUser } = this;
+    const { createUser, updateUser } = UserStore;
     const { users } = this.state;
 
     return <>{this.props.children({ users, createUser, updateUser })}</>;
