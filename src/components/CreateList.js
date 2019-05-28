@@ -12,12 +12,12 @@ class CreateList extends Component {
     return !this.isValid;
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const { onCreateList } = this.props;

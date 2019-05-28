@@ -7,6 +7,20 @@ import defaultState from '../default-state.json';
 class Application extends Component {
   state = { lists: defaultState.lists };
 
+  createList = ({ title }) => {
+    const { lists } = this.state;
+
+    const list = {
+      title,
+      id: Date.now().toString(),
+      cards: [],
+    };
+
+    console.log(list);
+
+    this.setState({ lists: [...lists, list] });
+  };
+
   removeList = targetListId => {
     let { lists } = this.state;
 
@@ -36,7 +50,7 @@ class Application extends Component {
       <main className="Application">
         <div>{/* Users will go here! */}</div>
         <section>
-          <CreateList />
+          <CreateList onCreateList={this.createList} />
           <Lists
             lists={lists}
             onRemoveList={this.removeList}
