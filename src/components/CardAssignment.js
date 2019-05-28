@@ -1,6 +1,8 @@
 import React from 'react';
+import { UsersContext } from './UsersContext';
 
-const CardAssignment = ({ card = {}, users = [], onAssignCard = () => {} }) => {
+const CardAssignment = ({ card = {}, onAssignCard = () => {} }) => {
+  const { users } = React.useContext(UsersContext);
   const handleChange = event => {
     const userId = event.target.value;
 

@@ -49,15 +49,7 @@ class Card extends Component {
                 </option>
               ))}
             </select>
-            <UsersContext.Consumer>
-              {({ users }) => (
-                <CardAssignment
-                  card={card}
-                  onAssignCard={onAssignCard}
-                  users={users}
-                />
-              )}
-            </UsersContext.Consumer>
+            <CardAssignment card={card} onAssignCard={onAssignCard} />
             <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>
