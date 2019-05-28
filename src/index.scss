@@ -168,12 +168,12 @@ input[type='submit'] {
 
 .User {
   border: 1px solid $list-color;
-  display: flex;
   font-size: 0.6em;
   margin-bottom: 1em;
   overflow-y: scroll;
   padding: 0.5em;
   width: 100%;
+  text-align: center;
   img {
     max-height: 100%;
     max-width: 100%;
