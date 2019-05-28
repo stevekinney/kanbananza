@@ -3,9 +3,10 @@ import CreateList from './CreateList';
 import Lists from './Lists';
 
 import defaultState from '../default-state.json';
+import Users from './Users';
 
 class Application extends Component {
-  state = { lists: defaultState.lists };
+  state = { lists: defaultState.lists, users: defaultState.users };
 
   createList = ({ title }) => {
     const { lists } = this.state;
@@ -75,10 +76,10 @@ class Application extends Component {
   };
 
   render() {
-    const { lists } = this.state;
+    const { lists, users } = this.state;
     return (
       <main className="Application">
-        <div>{/* Users will go here! */}</div>
+        <Users users={users} />
         <section>
           <CreateList onCreateList={this.createList} />
           <Lists

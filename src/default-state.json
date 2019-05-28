@@ -38,5 +38,17 @@
       "id": "1558196570597",
       "title": "Done"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Steve Kinney",
+      "email": "hello@stevekinney.net"
+    },
+    {
+      "id": "2",
+      "name": "Marc Grabanski",
+      "email": "m@marcgrabanski.com"
+    }
   ]
 }
