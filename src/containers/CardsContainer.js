@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Card from '../components/Card';
+import { removeCard } from '../actions/card-actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -7,4 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Card);
+export default connect(
+  mapStateToProps,
+  { removeCard },
+)(Card);

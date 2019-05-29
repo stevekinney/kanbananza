@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import lists from './list-reducer';
-import cards from './card-reducer';
+import lists from './lists-reducer';
+import cards from './cards-reducer';
+import users from './users-reducer';
 
 export default combineReducers({
   lists,
   cards,
+  users,
 });

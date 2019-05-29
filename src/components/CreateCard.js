@@ -25,10 +25,10 @@ class CreateCard extends Component {
 
     if (this.isInvalid) return;
 
-    const { createCard, listId } = this.props;
+    const { createCard } = this.props;
 
     if (createCard) {
-      createCard(listId, this.state);
+      createCard(this.props.listId, this.state);
     }
 
     this.setState({

@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 class CreateUser extends Component {
   state = { name: '', email: '' };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
-    const { onCreateUser } = this.props;
+    const { createUser } = this.props;
 
-    if (onCreateUser) onCreateUser(this.state);
+    if (createUser) createUser(this.state);
 
     this.setState({ name: '', email: '' });
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
