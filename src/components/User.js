@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import md5 from 'md5';
 
 const createProfileImageUrl = ({ email }) => {
@@ -6,26 +6,17 @@ const createProfileImageUrl = ({ email }) => {
   return `https://www.gravatar.com/avatar/${hash}`;
 };
 
-class User extends Component {
-  handleChange = (event) => {
-    const { user, onUpdateUser } = this.props;
-    if (onUpdateUser) onUpdateUser({ ...user, name: event.target.value });
-  };
+const User = ({ user }) => {
+  const profileImage = createProfileImageUrl(user);
 
-  render() {
-    const { user = {} } = this.props;
-    const profileImage = createProfileImageUrl(user);
-
-    return (
-      <article className="User">
-        <img className="User-picture" src={profileImage} alt={user.name} />
-        <div className="User-info">
-          <h4>{user.name || '[Placeholder]'}</h4>
-          <input type="text" value={user.name} onChange={this.handleChange} />
-        </div>
-      </article>
-    );
-  }
-}
+  return (
+    <article className="User">
+      <img className="User-picture" src={profileImage} alt={user.name} />
+      <div className="User-info">
+        <h2>{user.name}</h2>
+      </div>
+    </article>
+  );
+};
 
 export default User;
