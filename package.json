@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "localforage": "^1.7.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "md5": "^2.2.1",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.4",
